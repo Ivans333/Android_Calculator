@@ -23,20 +23,24 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         initTextView();
     }
+
+    //getting fields as program starts
     public void initTextView(){
         mainscreen = findViewById(R.id.textView);
         prevValue = findViewById(R.id.prevValue);
         resultBtn = findViewById(R.id.result);
     }
+    //updating main textfield
     public void textUpdate (String number){
         String text = mainscreen.getText().toString();
         text += number;
         mainscreen.setText(text);
     }
+    //updating extra field to see previous action
     public void prevValueUpdate(String number){
         prevValue.setText(number);
     }
-
+    //action buttons
     public void button1 (View view){
         textUpdate("1");
     }
@@ -99,13 +103,13 @@ public class MainActivity extends AppCompatActivity {
         mainscreen.setText("");
         operation = "/";
     }
-
+    //resetting the program values
     public void restart(View view) {
         resultBtn.setOnClickListener(this::result);
         prevValue.setText("");
         mainscreen.setText("");
     }
-
+    //receiving result
     public void result (View view) {
         switch (operation) {
             case "+": {
